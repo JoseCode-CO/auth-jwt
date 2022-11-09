@@ -3,3 +3,4 @@ npm i cors: para las conexiones entre servidores y que no haya conflictos
 npm i jsonwebtoken: para crear los toquen y autorizacion
 npm i morgan: ver peticiones que se hacen en el servidores
 npm i helmet: para generar caracteristicas de seguridad
+mkdir controllers libs middlewares models routes
