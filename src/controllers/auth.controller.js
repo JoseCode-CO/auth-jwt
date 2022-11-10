@@ -21,10 +21,9 @@ export const signUp = async (req, res) => {
     }
 
     const savedUser = await newUser.save();
-    console.log(savedUser)
 
     const token = jwt.sign({ id: savedUser._id }, CONFIGJWT, {
-        expiresIn: 86400//24 hours
+        expiresIn: 3600//60 min
     })
 
     res.json(token)
@@ -39,7 +38,7 @@ export const signIn = async (req, res) => {
     if (!matchPassword) return res.status(401).json({ token: null, message: 'Invalid password' })
 
     const token = jwt.sign({ id: userFound._id }, CONFIGJWT, {
-        expiresIn: 86400//24 hours
+        expiresIn: 3600//60 min
     })
 
     res.json(token)
