@@ -21,6 +21,15 @@ export const updateProductById = (req, res) => {
 
 }
 
-export const deleteProductById = (req, res) => {
-
+export const deleteProductById =async (req, res) => {
+    const { productId } = req.params;
+    try {
+        await Product.findByIdAndDelete(productId);
+        console.log(productId)
+        res.status(204).json()
+    } catch (error) {
+        return res.status(500).json({
+            message: "Error al eliminar el producto"
+        })
+    }
 }
