@@ -1,8 +1,10 @@
 import express from "express"
 import {connectDB} from './database';
+import {createRoles} from './libs/initialSetup'
 
-connectDB();
 const app = express()
+connectDB()
+createRoles()
 
 app.use(express.json())
 
